@@ -25,6 +25,8 @@ body{
   height:320px;
   border:1px solid #000000;
   text-align: center;
+  float:left;
+  margin:50px;
 }
 
 .character{

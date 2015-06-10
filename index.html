@@ -15,8 +15,8 @@
     
       <div id="menu">
         <ul>
-          <li>Practice</li>
-          <li>Overview</li>
+          <li id="practice">Practice</li>
+          <li id="overview">Overview</li>
         </ul>  
       </div>
     
@@ -36,12 +36,51 @@
     
     test="ā	á	ǎ	à	ē	é	ě	è	ī	í	ǐ	ì	ō	ó	ǒ	ò	ū	ú	ǔ	ù	ǖ	ǘ	ǚ	ǜ"
     vocab = [
-      ["生病","shēng bǐng","To get sick"]
+      ["感冒","gǎn mào","cold, flu"],
+      ["饿","è","hungry, to starve"],
+      ["好像","hǎo xiàng","to be like; to seem"],
+      ["舒服","shū fu","comfortable; well"],
+      ["头疼","tóu téng","to have a headache"],
+      ["发烧","fā shāo","to have a fever"],
+      ["咳嗽","ké sòu","to cough"],
+      ["生病","shēng bìng","to fall ill"],
+      ["考试","kǎo shì","exam"],
+      ["复习","fù xí","to review"],
+      ["所以","suǒ yǐ","therefore; consequently"],
+      ["医生","yī shēng","doctor"],
+      ["吃药","chī yào","to take medicine"],
+      ["地","de","(makes adv. with adj.)"],
+      ["休息","xiū xí","to rest"],
+      ["准备","zhǔn bèi","to prepare"],
+      ["笔记","bǐ jì","notes"],
+      ["感谢","gǎn xiè","to thank; to be grateful"]      
     ];
-      
-    for(var i=0;i<vocab.length;i+=1){
-      $("#main").append(template(vocab[i]));
+    
+    function randint(max, min){
+      return Math.floor(Math.random()*(max-min)+min);
     }
+    
+    function generateAllVocab(){
+      for(var i=0;i<vocab.length;i+=1){
+        $("#main").append(template(vocab[i]));
+      }
+    }
+    generateAllVocab();
+    
+    $('#practice').css( 'cursor', 'pointer' );
+    $('#overview').css( 'cursor', 'pointer' );
+    
+    $("#practice").click(function(){
+      $("#main").empty();
+      d=randint(vocab.length-1,0);
+      $("#main").append(template([vocab[d][0],vocab[d][1],"Guess!"]));
+      
+    });
+    
+    $("#overview").click(function(){
+      $("#main").empty();
+      generateAllVocab();
+    });
     
   </script>
   
