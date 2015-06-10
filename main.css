@@ -1,0 +1,38 @@
+body{
+  font-size:50px;
+}
+
+#menu{
+  align-content: center;
+}
+#menu ul li  {
+
+  display: inline;
+  margin-left:250px;
+  background-color: #ffaaaa;
+  
+  
+}
+
+#menu, #main{
+  margin:10px;
+  padding:10px;
+  border:1px solid #000000;
+}
+
+.template{
+  width:200px;
+  height:320px;
+  border:1px solid #000000;
+  text-align: center;
+}
+
+.character{
+  border:1px solid #000000;
+  padding:30px;
+}
+.pinyin, .definition{
+  font-size:24px;
+}
+
+

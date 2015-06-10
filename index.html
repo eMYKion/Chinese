@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Wo Sheng Bing Le
+    </title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      
+        
+    
+      <div id="menu">
+        <ul>
+          <li>Practice</li>
+          <li>Overview</li>
+        </ul>  
+      </div>
+    
+      <div id="main">
+        
+      </div>
+    
+        
+      
+    </div>
+  </body>
+  <script>
+    console.log("loaded");
+    template=function(vocabelement){
+      return $("<div class=\"template\"><p class=\"character\">"+vocabelement[0]+"</p><p class=\"pinyin\">"+vocabelement[1]+"</p><p class=\"definition\">"+vocabelement[2]+"</p></div>");
+    }
+    
+    test="ā	á	ǎ	à	ē	é	ě	è	ī	í	ǐ	ì	ō	ó	ǒ	ò	ū	ú	ǔ	ù	ǖ	ǘ	ǚ	ǜ"
+    vocab = [
+      ["生病","shēng bǐng","To get sick"]
+    ];
+      
+    for(var i=0;i<vocab.length;i+=1){
+      $("#main").append(template(vocab[i]));
+    }
+    
+  </script>
+  
+</html>
