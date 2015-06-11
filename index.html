@@ -30,9 +30,19 @@
   </body>
   <script>
     console.log("loaded");
-    template=function(vocabelement){
+    template = function(vocabelement){
       return $("<div class=\"template\"><p class=\"character\">"+vocabelement[0]+"</p><p class=\"pinyin\">"+vocabelement[1]+"</p><p class=\"definition\">"+vocabelement[2]+"</p></div>");
     }
+    
+    timer = function(vocabelement){
+      timed =  $("<div><h>Guess!</h><br><h id=\"time\">3</h><p>"+vocabelement[2]+"</p></div>");
+      timed.addClass("template");
+      timed.css("width","500px")
+      timed.removeClass("templateS");
+      timed.addClass("templateH");
+      return timed;
+    }
+    
     
     test="ā	á	ǎ	à	ē	é	ě	è	ī	í	ǐ	ì	ō	ó	ǒ	ò	ū	ú	ǔ	ù	ǖ	ǘ	ǚ	ǜ"
     vocab = [
@@ -65,22 +75,41 @@
         $("#main").append(template(vocab[i]));
       }
     }
-    generateAllVocab();
+    
+    function round(){
+      time=2;
+      ID = setInterval(function(){
+        $("#time").text(time);
+        time-=1;
+        if(time==-1){
+          clearInterval(ID);
+          $("#main").last().removeClass("templateH");
+          $("#main").last().addClass("templateS");
+        }
+      },1000);
+    }
     
     $('#practice').css( 'cursor', 'pointer' );
     $('#overview').css( 'cursor', 'pointer' );
     
     $("#practice").click(function(){
+      $("#main").last().removeClass("templateS");
       $("#main").empty();
       d=randint(vocab.length-1,0);
-      $("#main").append(template([vocab[d][0],vocab[d][1],"Guess!"]));
+      $("#main").append(template([vocab[d][0],vocab[d][1],""]));
+      $("#main").append(timer(vocab[d]));
+      round();
+      
       
     });
     
     $("#overview").click(function(){
+      //$("#main").last().removeClass("templateS");
       $("#main").empty();
       generateAllVocab();
     });
+    
+    generateAllVocab();
     
   </script>
   

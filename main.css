@@ -27,6 +27,19 @@ body{
   text-align: center;
   float:left;
   margin:50px;
+  
+  
+}
+
+.templateH p{
+  display: none;
+}
+
+.templateS p{
+  display: block;
+}
+
+
 }
 
 .character{
@@ -36,5 +49,4 @@ body{
 .pinyin, .definition{
   font-size:24px;
 }
-
 
